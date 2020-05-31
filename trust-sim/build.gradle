@@ -20,4 +20,4 @@ javafx {
     version = '14.0.1'
 }
 
-mainClassName = 'com.trustsim.Main'
+mainClassName = 'com.trustsim.TrustSim'
