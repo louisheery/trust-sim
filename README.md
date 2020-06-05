@@ -1,2 +1,2 @@
-# trust-sim
-Testbed for Trust between Agents
+# TrustSim
+A Testbed for Evaluating Trust
