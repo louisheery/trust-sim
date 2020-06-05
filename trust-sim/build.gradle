@@ -20,4 +20,10 @@ javafx {
     version = '14.0.1'
 }
 
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
+
 mainClassName = 'com.trustsim.TrustSim'

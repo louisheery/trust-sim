@@ -1,18 +1,10 @@
 package com.trustsim.simulator;
 
+import com.trustsim.simulator.subclasses.Graph;
+
 public class Simulator {
 
   public static Graph agents;
-
-  public static void main(String[] args) {
-
-    // 1. Import Agents from Database into Graph
-    importAgents();
-
-    // 2. Run Simulation
-    runSimulation();
-
-  }
 
   /**
    * Imports Agents stored in Agent Database store, and puts them in agentsGraph

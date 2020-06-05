@@ -1,4 +1,4 @@
-package com.trustsim.simulator;
+package com.trustsim.simulator.subclasses;
 
 public class Agent {
 
