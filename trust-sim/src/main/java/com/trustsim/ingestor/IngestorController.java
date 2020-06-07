@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -15,6 +16,7 @@ import java.util.ResourceBundle;
 
 public class IngestorController implements Initializable {
 
+  public MenuItem toMenu;
   @FXML Pane homePane, ingestorPane;
   public Stage stage;
 
@@ -25,7 +27,7 @@ public class IngestorController implements Initializable {
   @FXML
   public void toMainMenu(Event event) throws IOException {
     stage = (Stage) ingestorPane.getScene().getWindow();
-    homePane = FXMLLoader.load(getClass().getResource("/com/trustsim/Ingestor.fxml"));
+    homePane = FXMLLoader.load(getClass().getResource("/Home.fxml"));
     Scene scene = new Scene(homePane);
     stage.setScene(scene);
     stage.setTitle("Home - TrustSim");

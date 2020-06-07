@@ -35,28 +35,28 @@ public class HomeController implements Initializable {
 
     if (eventSource == ingestorButton) {
       stage = (Stage) homePane.getScene().getWindow();
-      ingestorPane = FXMLLoader.load(getClass().getResource("/com/trustsim/Simulator.fxml"));
+      ingestorPane = FXMLLoader.load(getClass().getResource("/Ingestor.fxml"));
       Scene scene = new Scene(ingestorPane);
       stage.setScene(scene);
       stage.setTitle("Ingestor - TrustSim");
       stage.show();
     } else if (eventSource == simulatorButton) {
       stage = (Stage) homePane.getScene().getWindow();
-      simulatorPane = FXMLLoader.load(getClass().getResource("/com/trustsim/Simulator.fxml"));
+      simulatorPane = FXMLLoader.load(getClass().getResource("/Simulator.fxml"));
       Scene scene = new Scene(simulatorPane);
       stage.setScene(scene);
       stage.setTitle("Simulator - TrustSim");
       stage.show();
     } else if (eventSource == synthesiserButton) {
       stage = (Stage) homePane.getScene().getWindow();
-      synthesiserPane = FXMLLoader.load(getClass().getResource("/com/trustsim/Synthesiser.fxml"));
+      synthesiserPane = FXMLLoader.load(getClass().getResource("/Synthesiser.fxml"));
       Scene scene = new Scene(synthesiserPane);
       stage.setScene(scene);
       stage.setTitle("Synthesiser - TrustSim");
       stage.show();
     } else if (eventSource == evaluatorButton) {
       stage = (Stage) homePane.getScene().getWindow();
-      evaluatorPane = FXMLLoader.load(getClass().getResource("/com/trustsim/Evaluator.fxml"));
+      evaluatorPane = FXMLLoader.load(getClass().getResource("/Evaluator.fxml"));
       Scene scene = new Scene(evaluatorPane);
       stage.setScene(scene);
       stage.setTitle("Evaluator - TrustSim");
