@@ -212,7 +212,7 @@ public class SynthesiserController implements Initializable {
   }
 
   private ObservableList<AgentSystem> getSavedSystems() {
-    return sqLiteDatabaseManager.retrieveSystems("agentSystems");
+    return sqLiteDatabaseManager.retrieveSystemTableData("agentSystems");
   }
 
   private class currentAgentSystemListener implements ChangeListener<Number> {

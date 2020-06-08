@@ -64,6 +64,7 @@ public class TrustSim extends Application {
     primaryStage.setTitle("Home - TrustSim");
     primaryStage.show();
     sqLiteDatabaseManager.addTable("agentSystems");
+    sqLiteDatabaseManager.addTable("trustModels");
 
   }
 

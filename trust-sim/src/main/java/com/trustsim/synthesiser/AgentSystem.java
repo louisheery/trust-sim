@@ -42,7 +42,7 @@ public class AgentSystem {
   @Override
   public String toString() {
 
-    return (systemName + "--" + dateCreated);
+    return (systemName);
   }
 
   public void setParameter1Value(String parameter1) {

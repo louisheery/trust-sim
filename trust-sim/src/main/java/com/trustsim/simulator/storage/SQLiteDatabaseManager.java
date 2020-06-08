@@ -1,5 +1,6 @@
 package com.trustsim.simulator.storage;
 
+import com.trustsim.simulator.trustmodel.TrustModel;
 import com.trustsim.synthesiser.AgentSystem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -224,17 +225,31 @@ public class SQLiteDatabaseManager {
     return agentSystemsXML;
   }
 
-  public ObservableList<AgentSystem> retrieveSystems(String tableName) {
+  public ObservableList<AgentSystem> retrieveSystemTableData(String tableName) {
 
     List<String> XMLStrings = getAllColumnDataFromTable(tableName, "ITEMXML");
 
     List<AgentSystem> agentSystemList = new ArrayList<>();
 
     for (String xmlString : XMLStrings) {
-      AgentSystem agentSystem = xStreamManager.decodeFromXML(xmlString);
+      AgentSystem agentSystem = (AgentSystem) xStreamManager.decodeFromXML(xmlString);
       agentSystemList.add(agentSystem);
     }
 
     return FXCollections.observableList(agentSystemList);
+  }
+
+  public ObservableList<TrustModel> retrieveModelTableData(String tableName) {
+
+    List<String> XMLStrings = getAllColumnDataFromTable(tableName, "ITEMXML");
+
+    List<TrustModel> trustModelList = new ArrayList<>();
+
+    for (String xmlString : XMLStrings) {
+      TrustModel trustModel = (TrustModel) xStreamManager.decodeFromXML(xmlString);
+      trustModelList.add(trustModel);
+    }
+
+    return FXCollections.observableList(trustModelList);
   }
 }

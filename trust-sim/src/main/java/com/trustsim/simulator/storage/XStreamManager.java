@@ -26,8 +26,8 @@ public class XStreamManager {
     return xml;
   }
 
-  public AgentSystem decodeFromXML(String xmlObject) {
-    return (AgentSystem) xStream.fromXML(xmlObject);
+  public Object decodeFromXML(String xmlObject) {
+    return xStream.fromXML(xmlObject);
   }
 
 //  public void exportAgentGraph(Graph graph) throws IOException {

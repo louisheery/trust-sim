@@ -1,10 +1,15 @@
 package com.trustsim.simulator.dispatchers;
 
-public class AgentFactory {
+public class AgentGraphFactory {
 
-  public AgentFactory() {
+  public AgentGraphFactory() {
 
   }
+
+  public void createGraph(int consumerAgents, int producerAgents, int truthAgents) {
+
+  }
+
 
   public void dispatchAgents(int consumerAgents, int producerAgents, int truthAgents) {
 
