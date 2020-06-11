@@ -2,16 +2,9 @@ package com.trustsim.simulator.agents;
 
 import java.util.List;
 
-public class ConsumerAgent extends Agent {
+public interface ConsumerAgent extends Agent {
 
-  List<ServiceRequest> requests;
+  void assignServiceRequest(ServiceRequest request);
 
-  public ConsumerAgent(Graph graph, int id, Integer[] dimensions) {
-    super(graph, id, dimensions);
-  }
-
-  public void assignServiceRequest(ServiceRequest request) {
-    requests.add(request);
-  }
-
+  ProducerAgent getPreferredProducerForTransaction(List<ProducerAgent> producerAgentsWillingToDoTransaction);
 }

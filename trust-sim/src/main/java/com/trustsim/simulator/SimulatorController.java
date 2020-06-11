@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
@@ -20,6 +21,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SimulatorController implements Initializable {
+
+  private final SimulatorEngine simulatorEngine = new SimulatorEngine();
 
   public MenuItem toMenu;
   public Button startSimulationButton;
@@ -61,7 +64,17 @@ public class SimulatorController implements Initializable {
 
   @FXML
   public void startSimulation(Event event) {
-
+    if (simulatorEngine.startSimulation(selectedAgentSystem, selectedTrustModel)) {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Simulation Completed Successfully");
+      alert.setHeaderText("Simulation Results can be Analysed in the Evaluator");
+      alert.showAndWait();
+    } else {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Simulation Failed");
+      alert.setHeaderText("Please see Stack Trace");
+      alert.showAndWait();
+    }
   }
 
 

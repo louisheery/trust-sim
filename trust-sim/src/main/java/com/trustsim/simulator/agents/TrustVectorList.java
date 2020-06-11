@@ -4,15 +4,15 @@ import static java.lang.System.*;
 
 public class TrustVectorList {
 
-  public double[] trustVectors;
+  public Double[] trustVectors;
 
-  public TrustVectorList(double[] trustVectorValues, int size) {
+  public TrustVectorList(Double[] trustVectorValues, int size) {
 
-    trustVectors = new double[size];
+    trustVectors = new Double[size];
     arraycopy(trustVectorValues, 0, trustVectors, 0, trustVectorValues.length);
   }
 
-  public double getTrustVectorValue(int trustVector) {
+  public Double getTrustVectorValue(int trustVector) {
     return trustVectors[trustVector];
   }
 

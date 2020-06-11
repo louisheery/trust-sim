@@ -1,41 +1,19 @@
 package com.trustsim.simulator.agents;
 
-import java.util.HashMap;
+public interface Agent extends Comparable<Agent> {
 
-public class Agent {
+  // Comparable<AgentInterface> methods
+  boolean equals(Agent other);
 
-  Graph graph;
-  int id;
-  HashMap<String, Integer> trustDimensions;
+  int hashCode();
 
-  Agent(Graph graph, int id, Integer[] dimensions) {
-    this.graph = graph;
-    this.id = id;
+  void updateTrustScores(Agent otherAgent, ServiceRequest serviceRequestTransaction);
 
-    for (int i = 0; i < dimensions.length; i++) {
-      if (dimensions[i] != null) {
-      trustDimensions.put(Integer.toString(i), dimensions[i]);
-      }
-    }
-  }
+  int provideARecommendation(Agent receivingAgent, ServiceRequest serviceRequestTransaction);
 
-  public int getId() {
-    return id;
-  }
+  void giveFeedback(Agent receivingAgent, ServiceRequest serviceRequest);
 
-  public boolean equals(Agent other) {
-    return this.id == other.getId();
-  }
+  TrustVectorList requestTrustScoreInAnotherAgent(Agent otherAgent);
 
-  public int hashCode() {
-    final int primeNum = 11;
-    int output = 1;
-    output = (primeNum * output) + id;
-    return output;
-  }
-
-  public int getRecommendation(Agent agent) {
-    return graph.getIndirectTrustPathway(this, agent);
-  }
-
+  int getId();
 }

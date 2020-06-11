@@ -26,21 +26,6 @@ public class SQLiteDatabaseManager {
     return INSTANCE;
   }
 
-
-  public void openDatabase() {
-
-    try {
-      Class.forName("org.sqlite.JDBC");
-      Connection dbConnection = DriverManager.getConnection(DB_PATH + DB_NAME);
-
-
-    } catch (SQLException | ClassNotFoundException e) {
-      System.out.println(e.getMessage());
-      return;
-    }
-    System.out.println("DATABASE OPENED");
-  }
-
   public void addTable(String tableName) {
 
     try {
@@ -130,15 +115,15 @@ public class SQLiteDatabaseManager {
         }
       }
 
-
-      return sqlQuery.equals("0");
-
     } catch (Exception e) {
       System.out.println("@^" + e.getMessage() + "@^");
+      if (sqlExecutor != null) {
+        sqlExecutor.close();
+        dbConnection.commit();
+        dbConnection.close();
+      }
     }
-    sqlExecutor.close();
-    dbConnection.commit();
-    dbConnection.close();
+
     return false;
   }
 

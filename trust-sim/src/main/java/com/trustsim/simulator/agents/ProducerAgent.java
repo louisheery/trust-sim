@@ -1,17 +1,11 @@
 package com.trustsim.simulator.agents;
 
-import java.util.List;
+public interface ProducerAgent extends Agent {
 
-public class ProducerAgent extends Agent {
+  void requestService(ServiceRequest request);
 
-  List<ServiceRequest> jobs;
+  boolean receiveTransactionRequest(ServiceRequest serviceRequest);
 
-  public ProducerAgent(Graph graph, int id, Integer[] dimensions) {
-    super(graph, id, dimensions);
-  }
-
-  public void requestService(ServiceRequest request) {
-    jobs.add(request);
-  }
 
 }
+

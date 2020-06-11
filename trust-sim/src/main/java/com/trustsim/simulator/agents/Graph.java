@@ -1,15 +1,17 @@
 package com.trustsim.simulator.agents;
 
+import com.trustsim.simulator.agents.FCTrustModel.FCTrustConsumerAgent;
+import com.trustsim.simulator.agents.FCTrustModel.FCTrustProducerAgent;
+
 import java.util.*;
 
 public class Graph {
 
   private int id;
   private String graphName;
-  private Map<Agent, List<Edge<Agent>>> agents;
+  private final Map<Agent, List<Edge<Agent>>> agents = new HashMap<>();
 
   public Graph() {
-    agents = new HashMap<Agent, List<Edge<Agent>>>();
   }
 
   public static class Edge<V> {
@@ -22,11 +24,11 @@ public class Graph {
       this.dest = destValue;
     }
 
-    public Edge(V srcValue, V destValue, TrustVectorList vectors) {
-      this.src = srcValue;
-      this.dest = destValue;
-      this.edgeWeight = vectors;
-    }
+//    public Edge(V srcValue, V destValue, TrustVectorList vectors) {
+//      this.src = srcValue;
+//      this.dest = destValue;
+//      this.edgeWeight = vectors;
+//    }
 
     public V getDest() {
       return dest;
@@ -50,7 +52,7 @@ public class Graph {
         return true;
       }
 
-      if (o == null) {
+      if (o == null || getClass() != o.getClass()) {
         return false;
       }
 
@@ -129,17 +131,49 @@ public class Graph {
   }
 
   public boolean hasDirectConnection(Agent agent1, Agent agent2) {
-    return agents.get(agent1).contains(agent2) && agents.get(agent2).contains(agent1);
+
+    List<Edge<Agent>> adjacentEdges = agents.get(agent1);
+    for (Edge<Agent> edge : adjacentEdges) {
+      if (edge.getDest() == agent2) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   public List<Edge<Agent>> getEdges(Agent agent) {
     return agents.get(agent);
   }
 
-  public int getIndirectTrustPathway(Agent agent1, Agent agent2) {
-    // implement this;
-    // depth-first search of the graph -> to find the maximum trust score route between agent1 and agent2
-    return 1;
+//  public int getIndirectTrustPathway(Agent agent1, Agent agent2) {
+//    // implement this;
+//    // depth-first search of the graph -> to find the maximum trust score route between agent1 and agent2
+//    return 1;
+//  }
+
+  public List<Agent> getAllConsumerAgents() {
+
+    List<Agent> agentList = new ArrayList<Agent>();
+
+    for (Agent entry : agents.keySet()) {
+      if (entry instanceof FCTrustConsumerAgent) {
+        agentList.add(entry);
+      }
+    }
+    return agentList;
+  }
+
+  public List<ProducerAgent> getAllProducerAgents() {
+
+    List<ProducerAgent> agentList = new ArrayList<>();
+
+    for (Agent entry : agents.keySet()) {
+      if (entry instanceof FCTrustProducerAgent) {
+        agentList.add((ProducerAgent) entry);
+      }
+    }
+    return agentList;
   }
 
 }
