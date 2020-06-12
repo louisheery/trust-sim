@@ -1,14 +1,14 @@
-package com.trustsim.simulator.agents.FCTrustModel;
+package com.trustsim.simulator.agents.WangTrustModel;
 
 import com.trustsim.simulator.agents.*;
 
 import java.util.List;
 
-public class FCTrustProducerAgent extends FCTrustAgent implements ProducerAgent {
+public class WangTrustProducerAgent extends WangTrustAgent implements ProducerAgent {
 
   List<ServiceRequest> jobs;
 
-  public FCTrustProducerAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
+  public WangTrustProducerAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
     super(graph, id, dimensions, agentPersonalityDimensions);
   }
 

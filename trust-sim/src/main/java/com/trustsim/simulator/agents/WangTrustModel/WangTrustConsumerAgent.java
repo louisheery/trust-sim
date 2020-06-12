@@ -1,4 +1,4 @@
-package com.trustsim.simulator.agents.FCTrustModel;
+package com.trustsim.simulator.agents.WangTrustModel;
 
 import com.trustsim.simulator.agents.*;
 
@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FCTrustConsumerAgent extends FCTrustAgent implements ConsumerAgent {
+public class WangTrustConsumerAgent extends WangTrustAgent implements ConsumerAgent {
 
   List<ServiceRequest> requests;
 
-  public FCTrustConsumerAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
+  public WangTrustConsumerAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
     super(graph, id, dimensions, agentPersonalityDimensions);
   }
 

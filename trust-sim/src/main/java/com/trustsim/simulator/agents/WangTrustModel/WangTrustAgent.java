@@ -1,10 +1,10 @@
-package com.trustsim.simulator.agents.FCTrustModel;
+package com.trustsim.simulator.agents.WangTrustModel;
 
 import com.trustsim.simulator.agents.*;
 
 import java.util.HashMap;
 
-public class FCTrustAgent implements Agent {
+public class WangTrustAgent implements Agent {
 
   Graph graph;
   int id;
@@ -21,7 +21,7 @@ public class FCTrustAgent implements Agent {
   /////////////////////////////////////
 
 
-  FCTrustAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
+  WangTrustAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
     this.graph = graph;
     this.id = id;
     this.honestyToGiveTruthfulFeedback = agentPersonalityDimensions[0];
@@ -77,7 +77,7 @@ public class FCTrustAgent implements Agent {
 
 
       if (graph.hasDirectConnection(this, otherAgent)) {
-        return graph.getTrustVector(this, otherAgent);
+        return (TrustVectorList) graph.getTrustVector(this, otherAgent);
       } else {
 
       }

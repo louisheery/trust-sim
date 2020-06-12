@@ -1,5 +1,6 @@
 package com.trustsim.synthesiser;
 
+import com.trustsim.simulator.agents.Agent;
 import com.trustsim.simulator.agents.Graph;
 import com.trustsim.simulator.storage.SQLiteDatabaseManager;
 import com.trustsim.simulator.storage.XStreamManager;
@@ -115,7 +116,7 @@ public class SynthesiserController implements Initializable {
 
       if (buttonEventType.equals("add")) {
         String systemName = addSystemPopup();
-        Graph blankGraph = new Graph();
+        Graph<Agent> blankGraph = new Graph<>();
         String currentDate = LocalDate.now().toString();
         AgentSystem newSystem = new AgentSystem(systemName, currentDate, blankGraph);
         String agentSystemXML = null;

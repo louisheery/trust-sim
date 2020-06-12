@@ -1,4 +1,4 @@
-package com.trustsim.simulator.agents.FCTrustModel;
+package com.trustsim.simulator.agents.WangTrustModel;
 
 import com.trustsim.simulator.agents.Graph;
 import com.trustsim.simulator.agents.ServiceRequest;
@@ -6,11 +6,11 @@ import com.trustsim.simulator.agents.TruthAgent;
 
 import java.util.List;
 
-public class FCTrustTruthAgent extends FCTrustAgent implements TruthAgent {
+public class WangTrustTruthAgent extends WangTrustAgent implements TruthAgent {
 
   List<ServiceRequest> jobs;
 
-  public FCTrustTruthAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
+  public WangTrustTruthAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
     super(graph, id, dimensions, agentPersonalityDimensions);
   }
 
