@@ -7,13 +7,15 @@ public interface Agent extends Comparable<Agent> {
 
   int hashCode();
 
-  void updateTrustScores(Agent otherAgent, ServiceRequest serviceRequestTransaction);
+  void updateTrustValues(Agent otherAgent);
+
+  void updateTransactionHistory(Agent otherAgent, ServiceRequest serviceRequestTransaction);
 
   int provideARecommendation(Agent receivingAgent, ServiceRequest serviceRequestTransaction);
 
   void giveFeedback(Agent receivingAgent, ServiceRequest serviceRequest);
 
-  TrustVectorList requestTrustScoreInAnotherAgent(Agent otherAgent);
+  Double requestTrustScoreInAnotherAgent(Agent otherAgent);
 
   int getId();
 }

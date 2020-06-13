@@ -1,10 +1,9 @@
 package com.trustsim.synthesiser;
 
 import com.trustsim.simulator.agents.Graph;
-import com.trustsim.simulator.agents.TrustVectorList;
 
 public interface AgentTrustGraphFactory {
-  void initialiseGraphTrust(Graph<TrustVectorList, TransactionalVectorList> graph);
+  void initialiseGraphTrust(Graph graph);
 
 //  Double[] personalityDimensionDistribution(double minValue, double maxValue, int numberOfDimensions);
 //

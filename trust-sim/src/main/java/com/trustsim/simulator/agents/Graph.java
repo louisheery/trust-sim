@@ -2,30 +2,39 @@ package com.trustsim.simulator.agents;
 
 import com.trustsim.simulator.agents.WangTrustModel.WangTrustConsumerAgent;
 import com.trustsim.simulator.agents.WangTrustModel.WangTrustProducerAgent;
+import com.trustsim.synthesiser.TransactionalVectorList;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class Graph<E1, E2> {
+public class Graph {
 
   private int id;
   private String graphName;
-  private final Map<Agent, List<Edge<Agent, E1, E2>>> agents = new HashMap<>();
+  private final Map<Agent, List<Edge<Agent, TrustVectorList, TransactionalVectorList>>> agents = new HashMap<>();
 
   public Graph() {
   }
 
-  public static class Edge<V, E1, E2> {
+  public double getLambda() {
+    return 1; // IMPLEMENT THIS //
+  }
+
+
+  public static class Edge<V, TrustVectorList, TransactionalVectorList> {
     V src;
     V dest;
-    E1 edgeTrust;
-    E2 edgeTransactional;
+    TrustVectorList edgeTrust;
+    TransactionalVectorList edgeTransactional;
 
     public Edge(V srcValue, V destValue) {
       this.src = srcValue;
       this.dest = destValue;
     }
 
-    public Edge(V srcValue, V destValue, E1 trustVector, E2 transactionalVector) {
+    public Edge(V srcValue, V destValue, TrustVectorList trustVector, TransactionalVectorList transactionalVector) {
       this.src = srcValue;
       this.dest = destValue;
       this.edgeTrust = trustVector;
@@ -40,19 +49,19 @@ public class Graph<E1, E2> {
       return src;
     }
 
-    public E1 getTrustEdge() {
+    public TrustVectorList getTrustEdge() {
       return edgeTrust;
     }
 
-    public E2 getTransactionalEdge() {
+    public TransactionalVectorList getTransactionalEdge() {
       return edgeTransactional;
     }
 
-    public void setTrustEdge(E1 weights) {
+    public void setTrustEdge(TrustVectorList weights) {
       edgeTrust = weights;
     }
 
-    public void setTransactionalEdge(E2 weights) {
+    public void setTransactionalEdge(TransactionalVectorList weights) {
       edgeTransactional = weights;
     }
 
@@ -66,7 +75,7 @@ public class Graph<E1, E2> {
         return false;
       }
 
-      Edge<Agent, E1, E2> otherAgent = (Edge<Agent, E1, E2>) o;
+      Edge<Agent, TrustVectorList, TransactionalVectorList> otherAgent = (Edge<Agent, TrustVectorList, TransactionalVectorList>) o;
       return this.getSrc() == otherAgent.getSrc() && this.getDest() == otherAgent.getDest();
     }
 
@@ -84,10 +93,10 @@ public class Graph<E1, E2> {
     agents.remove(agent);
 
     // remove agent in List<Agent> of another agent
-    for (Map.Entry<Agent, List<Edge<Agent, E1, E2>>> iter : agents.entrySet()) {
-      List<Edge<Agent, E1, E2>> adjacentEdges = iter.getValue();
+    for (Map.Entry<Agent, List<Edge<Agent, TrustVectorList, TransactionalVectorList>>> iter : agents.entrySet()) {
+      List<Edge<Agent, TrustVectorList, TransactionalVectorList>> adjacentEdges = iter.getValue();
 
-      for (Edge<Agent, E1, E2> edge : adjacentEdges) {
+      for (Edge<Agent, TrustVectorList, TransactionalVectorList> edge : adjacentEdges) {
         if (edge.getDest() == agent) {
           iter.getValue().remove(edge);
         }
@@ -99,7 +108,7 @@ public class Graph<E1, E2> {
     return agents.containsKey(agent);
   }
 
-  public void addTrustEdge(Agent agent1, Agent agent2, E1 vectors) {
+  public void addTrustEdge(Agent agent1, Agent agent2, TrustVectorList vectors) {
 
     if (!agents.containsKey(agent1)) {
       this.addAgent(agent1);
@@ -109,16 +118,16 @@ public class Graph<E1, E2> {
       this.addAgent(agent2);
     }
 
-    List<Edge<Agent, E1, E2>> adjacentEdges = agents.get(agent1);
+    List<Edge<Agent, TrustVectorList, TransactionalVectorList>> adjacentEdges = agents.get(agent1);
 
-    for (Edge<Agent, E1, E2> edge : adjacentEdges) {
+    for (Edge<Agent, TrustVectorList, TransactionalVectorList> edge : adjacentEdges) {
       if (edge.getSrc() == agent1) {
         edge.setTrustEdge(vectors);
       }
     }
   }
 
-  public void addTransactionalEdge(Agent agent1, Agent agent2, E2 vectors) {
+  public void addTransactionalEdge(Agent agent1, Agent agent2, TransactionalVectorList vectors) {
 
     if (!agents.containsKey(agent1)) {
       this.addAgent(agent1);
@@ -128,9 +137,9 @@ public class Graph<E1, E2> {
       this.addAgent(agent2);
     }
 
-    List<Edge<Agent, E1, E2>> adjacentEdges = agents.get(agent1);
+    List<Edge<Agent, TrustVectorList, TransactionalVectorList>> adjacentEdges = agents.get(agent1);
 
-    for (Edge<Agent, E1, E2> edge : adjacentEdges) {
+    for (Edge<Agent, TrustVectorList, TransactionalVectorList> edge : adjacentEdges) {
       if (edge.getSrc() == agent1) {
         edge.setTransactionalEdge(vectors);
       }
@@ -143,14 +152,14 @@ public class Graph<E1, E2> {
       return false;
     }
 
-    agents.get(agent1).remove(new Edge<Agent, E1, E2>(agent1, agent2));
+    agents.get(agent1).remove(new Edge<Agent, TrustVectorList, TransactionalVectorList>(agent1, agent2));
     return true;
   }
 
-  public E1 getTrustVector(Agent agent1, Agent agent2) {
+  public TrustVectorList getTrustVector(Agent agent1, Agent agent2) {
     if (hasDirectConnection(agent1, agent2)) {
-      List<Edge<Agent, E1, E2>> adjacentEdges = agents.get(agent1);
-      for (Edge<Agent, E1, E2> edge : adjacentEdges) {
+      List<Edge<Agent, TrustVectorList, TransactionalVectorList>> adjacentEdges = agents.get(agent1);
+      for (Edge<Agent, TrustVectorList, TransactionalVectorList> edge : adjacentEdges) {
         if (edge.getDest() == agent2) {
           return edge.getTrustEdge();
         }
@@ -159,10 +168,10 @@ public class Graph<E1, E2> {
     return null;
   }
 
-  public E2 getTransactionalVector(Agent agent1, Agent agent2) {
+  public TransactionalVectorList getTransactionalVector(Agent agent1, Agent agent2) {
     if (hasDirectConnection(agent1, agent2)) {
-      List<Edge<Agent, E1, E2>> adjacentEdges = agents.get(agent1);
-      for (Edge<Agent, E1, E2> edge : adjacentEdges) {
+      List<Edge<Agent, TrustVectorList, TransactionalVectorList>> adjacentEdges = agents.get(agent1);
+      for (Edge<Agent, TrustVectorList, TransactionalVectorList> edge : adjacentEdges) {
         if (edge.getDest() == agent2) {
           return edge.getTransactionalEdge();
         }
@@ -173,8 +182,8 @@ public class Graph<E1, E2> {
 
   public boolean hasDirectConnection(Agent agent1, Agent agent2) {
 
-    List<Edge<Agent, E1, E2>> adjacentEdges = agents.get(agent1);
-    for (Edge<Agent, E1, E2> edge : adjacentEdges) {
+    List<Edge<Agent, TrustVectorList, TransactionalVectorList>> adjacentEdges = agents.get(agent1);
+    for (Edge<Agent, TrustVectorList, TransactionalVectorList> edge : adjacentEdges) {
       if (edge.getDest() == agent2) {
         return true;
       }
@@ -183,7 +192,7 @@ public class Graph<E1, E2> {
     return false;
   }
 
-  public List<Edge<Agent, E1, E2>> getEdges(Agent agent) {
+  public List<Edge<Agent, TrustVectorList, TransactionalVectorList>> getEdges(Agent agent) {
     return agents.get(agent);
   }
 

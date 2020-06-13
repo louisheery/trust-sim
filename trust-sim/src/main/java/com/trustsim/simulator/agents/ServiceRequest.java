@@ -1,8 +1,7 @@
 package com.trustsim.simulator.agents;
 
-import com.trustsim.TrustSim;
-
-import static java.lang.System.arraycopy;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceRequest {
 
@@ -11,12 +10,14 @@ public class ServiceRequest {
 
   private boolean isCompleted = false;
 
-  private Double[] serviceTrustCharacteristics = new Double[TrustSim.NUM_OF_TRUST_DIMS];
+  private int requestTimeStep;
+  private int completionTimeStep;
 
-  public ServiceRequest(Double[] serviceTrustCharacteristics) {
+  private List<Double> serviceTrustCharacteristics = new ArrayList<>();
 
-    arraycopy(serviceTrustCharacteristics, 0,
-        this.serviceTrustCharacteristics, 0, serviceTrustCharacteristics.length);
+  public ServiceRequest(List<Double> serviceTrustCharacteristics, int requestTimeStep) {
+    this.requestTimeStep = requestTimeStep;
+    this.serviceTrustCharacteristics = serviceTrustCharacteristics;
   }
 
   public void assignConsumerAgentToRequest(ConsumerAgent agent) {
@@ -41,5 +42,13 @@ public class ServiceRequest {
 
   public void markWhetherCompleted(boolean isTransactionCompletedSuccessfully) {
     isCompleted = isTransactionCompletedSuccessfully;
+  }
+
+  public int getRequestTime() {
+    return requestTimeStep;
+  }
+
+  public int getCompletionTime() {
+    return completionTimeStep;
   }
 }

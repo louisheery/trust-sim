@@ -16,7 +16,7 @@ public class TransactionHistory {
   }
 
   public Double getTransactionalValue(int transactionTime) {
-    return transactionalVector.getTrustVectorValue(transactionTime);
+    return transactionalVector.getTransactionalVectorValue(transactionTime);
   }
 
   public TransactionalVectorList getTransactionalVector() {
@@ -24,7 +24,7 @@ public class TransactionHistory {
   }
 
   public void setTransactionalValue(int transactionTime, double transactionalValue) {
-    transactionalVector.setTrustVectorValue(transactionTime, transactionalValue);
+    transactionalVector.setTransactionalVectorValue(transactionTime, transactionalValue);
   }
 
   public void setTransactionalVector(TransactionalVectorList transactionalHistoryTimeAndSuccessValues) {

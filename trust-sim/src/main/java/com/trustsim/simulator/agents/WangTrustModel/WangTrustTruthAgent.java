@@ -10,7 +10,7 @@ public class WangTrustTruthAgent extends WangTrustAgent implements TruthAgent {
 
   List<ServiceRequest> jobs;
 
-  public WangTrustTruthAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
+  public WangTrustTruthAgent(Graph graph, int id, List<Double> dimensions, List<Double> agentPersonalityDimensions) {
     super(graph, id, dimensions, agentPersonalityDimensions);
   }
 

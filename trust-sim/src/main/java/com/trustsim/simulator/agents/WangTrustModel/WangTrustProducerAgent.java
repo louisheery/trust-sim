@@ -1,6 +1,9 @@
 package com.trustsim.simulator.agents.WangTrustModel;
 
-import com.trustsim.simulator.agents.*;
+import com.trustsim.simulator.agents.ConsumerAgent;
+import com.trustsim.simulator.agents.Graph;
+import com.trustsim.simulator.agents.ProducerAgent;
+import com.trustsim.simulator.agents.ServiceRequest;
 
 import java.util.List;
 
@@ -8,8 +11,8 @@ public class WangTrustProducerAgent extends WangTrustAgent implements ProducerAg
 
   List<ServiceRequest> jobs;
 
-  public WangTrustProducerAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
-    super(graph, id, dimensions, agentPersonalityDimensions);
+  public WangTrustProducerAgent(Graph graph, int id, List<Double> agentTrustDimensions, List<Double> agentPersonalityDimensions) {
+    super(graph, id, agentTrustDimensions, agentPersonalityDimensions);
   }
 
   public void requestService(ServiceRequest request) {
@@ -17,35 +20,29 @@ public class WangTrustProducerAgent extends WangTrustAgent implements ProducerAg
   }
 
 
+
   public boolean receiveTransactionRequest(ServiceRequest serviceRequest) {
 
     // CODE DETERMINES IF PRODUCER WILL CARRY OUT TRANSACTION
-    trustThresholdToPerformATransactionForAConsumer
+    //// //trustThresholdToPerformATransactionForAConsumer
 
     ConsumerAgent consumerRequestingTransaction = serviceRequest.getConsumerAgentOfRequest();
 
     // LOCAL TRUST SCORE
-    int degreesOfFreedom = 0;
-    while (degreesOfFreedom < 3) {
-      if (graph.hasDirectConnection(this, otherAgent)) {
-        return graph.getTrustVector(this, otherAgent);
-      } else {
-
-      }
-    }
+//    int degreesOfFreedom = 0;
+//    while (degreesOfFreedom < 3) {
+//      if (graph.hasDirectConnection(this, serviceRequest.getConsumerAgentOfRequest())) {
+//        return graph.getTrustVector(this, serviceRequest.getConsumerAgentOfRequest());
+//      } else {
+//
+//      }
+//    }
 
     // GLOBAL TRUST SCORE
-    Double consumerTrustScore = 0;
-    return trustThresholdToPerformATransactionForAConsumer > consumerTrustScore;
-  }
-
-
-  public boolean receiveTransactionRequest(ServiceRequest serviceRequest) {
-
-    // FORMULAE THAT DETERMINES IF PRODUCER WILL CARRY OUT TRANSACTION BASED ON ITS PERSONALITY
-
+    Double consumerTrustScore = 0.0;
+    // return trustThresholdToPerformATransactionForAConsumer > consumerTrustScore;
     return Math.random() > 0.5;
-
   }
+
 
 }

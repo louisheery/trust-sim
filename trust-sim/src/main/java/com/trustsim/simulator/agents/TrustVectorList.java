@@ -1,23 +1,47 @@
 package com.trustsim.simulator.agents;
 
-import static java.lang.System.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TrustVectorList {
 
-  public Double[] trustVectors;
+  private List<Double> trustVector = new ArrayList<>();
 
-  public TrustVectorList(Double[] trustVectorValues, int size) {
 
-    trustVectors = new Double[size];
-    arraycopy(trustVectorValues, 0, trustVectors, 0, trustVectorValues.length);
+  public TrustVectorList(List<Double> trustVectorInput) {
+    trustVector.addAll(trustVectorInput);
   }
 
-  public Double getTrustVectorValue(int trustVector) {
-    return trustVectors[trustVector];
+//  public TrustVectorList(Double[] trustVector) {
+//
+//    this.directTrust = directTrust;
+//    this.indirectTrust = indirectTrust;
+//
+//    // REPLACE THIS: INSTEAD IT SHOULD CALL THE TRUST MODEL AND GET IT TO CALCULATE
+//    // GENERAL TRUST BASED ON THE PARAMETERS WHICH WEIGHT DIRECT TRUST AND INDIRECT TRUST
+//    // FOR THIS MODEL:
+//    // e.g. this.generalTrust = calculateGeneralTrust(directTrust, indirectTrust);
+//    this.generalTrust = generalTrust;
+//  }
+
+  public List<Double> getTrustVector() {
+    return trustVector;
   }
 
-  public void setTrustVectorValue(int trustVector, double trustVectorValue) {
-    trustVectors[trustVector] = trustVectorValue;
+  public Double getTrustVectorValue(int index) {
+    return trustVector.get(index);
   }
+
+
+  public void setTrustVector(List<Double> trustVectorInput) {
+    trustVector.clear();
+    trustVector.addAll(trustVectorInput);
+  }
+
+  public void setTrustVectorValue(Double trustInput, int index) {
+    trustVector.set(index, trustInput);
+  }
+
+
 
 }

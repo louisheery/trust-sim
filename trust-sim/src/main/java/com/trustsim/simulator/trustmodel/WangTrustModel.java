@@ -3,7 +3,10 @@ package com.trustsim.simulator.trustmodel;
 import com.trustsim.simulator.agents.WangTrustModel.WangTrustAgent;
 import com.trustsim.simulator.agents.Graph;
 
-public class FCTrustModel implements TrustModel {
+public class WangTrustModel implements TrustModel {
+
+  public static final Double LAMBDA_CONST = 0.5;
+  public static final Double GAMMA_CONST = 0.5;
 
   @Override
   public int calculateTrust(Graph agentGraph, WangTrustAgent agent1, WangTrustAgent agent2) {

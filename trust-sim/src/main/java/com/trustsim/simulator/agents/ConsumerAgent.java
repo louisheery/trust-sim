@@ -6,5 +6,7 @@ public interface ConsumerAgent extends Agent {
 
   void assignServiceRequest(ServiceRequest request);
 
+  void updateTrustValues(Agent otherAgent);
+
   ProducerAgent getPreferredProducerForTransaction(List<ProducerAgent> producerAgentsWillingToDoTransaction);
 }

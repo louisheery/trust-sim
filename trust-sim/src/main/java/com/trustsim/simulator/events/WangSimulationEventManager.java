@@ -5,6 +5,7 @@ import com.trustsim.simulator.agents.Graph;
 import com.trustsim.simulator.agents.ProducerAgent;
 import com.trustsim.simulator.agents.ServiceRequest;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -56,7 +57,7 @@ public class WangSimulationEventManager implements SimulationEventManager {
 
   @Override
   public ServiceRequest generateRandomServiceRequest() {
-    Double[] requestTrustRequirements = new Double[]{Math.random(),Math.random(),Math.random(),Math.random(),Math.random()};
+    List<Double> requestTrustRequirements = new ArrayList<>(List.of(Math.random(),Math.random(),Math.random(),Math.random(),Math.random()));
     return new ServiceRequest(requestTrustRequirements);
   }
 

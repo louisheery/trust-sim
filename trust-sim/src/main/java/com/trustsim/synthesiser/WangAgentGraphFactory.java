@@ -7,6 +7,7 @@ import com.trustsim.simulator.agents.WangTrustModel.WangTrustAgent;
 import com.trustsim.simulator.agents.WangTrustModel.WangTrustConsumerAgent;
 import com.trustsim.simulator.agents.WangTrustModel.WangTrustProducerAgent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WangAgentGraphFactory implements AgentGraphFactory {
@@ -16,8 +17,8 @@ public class WangAgentGraphFactory implements AgentGraphFactory {
   }
 
   @Override
-  public Graph<TrustVectorList, TransactionalVectorList> createGraph(int numberOfConsumers, int numberOfProducers) {
-    Graph<TrustVectorList, TransactionalVectorList> graph = new Graph<>();
+  public Graph createGraph(int numberOfConsumers, int numberOfProducers) {
+    Graph graph = new Graph();
 
     int i = 0;
     while (i < numberOfConsumers) {
@@ -35,7 +36,7 @@ public class WangAgentGraphFactory implements AgentGraphFactory {
   }
 
   @Override
-  public void initialiseGraphTransactions(Graph<TrustVectorList, TransactionalVectorList> graph, List<TransactionHistory> historicTransactions) {
+  public void initialiseGraphTransactions(Graph graph, List<TransactionHistory> historicTransactions) {
 
     for (TransactionHistory transaction : historicTransactions) {
 
@@ -54,15 +55,15 @@ public class WangAgentGraphFactory implements AgentGraphFactory {
 
 
   @Override
-  public void initialiseGraphTrust(Graph<TrustVectorList, TransactionalVectorList> graph) {
+  public void initialiseGraphTrust(Graph graph) {
 
     List<Agent> allAgents = graph.getAllAgents();
 
     for (Agent agentA : allAgents) {
       for (Agent agentB : allAgents) {
         if (!agentA.equals(agentB)) {
-          Double[] trustValues = new Double[]{0.5};
-          TrustVectorList trustScores = new TrustVectorList(trustValues, 1);
+          List<Double> trustValues = new ArrayList<>(List.of(0.5));
+          TrustVectorList trustScores = new TrustVectorList(trustValues);
           graph.addTrustEdge(agentA, agentB, trustScores);
         }
       }

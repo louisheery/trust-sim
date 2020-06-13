@@ -2,16 +2,15 @@ package com.trustsim.simulator.agents.WangTrustModel;
 
 import com.trustsim.simulator.agents.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class WangTrustConsumerAgent extends WangTrustAgent implements ConsumerAgent {
 
-  List<ServiceRequest> requests;
+  private List<ServiceRequest> requests;
+  private TrustVectorList trustVectorList;
 
-  public WangTrustConsumerAgent(Graph graph, int id, Double[] dimensions, Double[] agentPersonalityDimensions) {
-    super(graph, id, dimensions, agentPersonalityDimensions);
+  public WangTrustConsumerAgent(Graph graph, int id, List<Double> agentTrustDimensions, List<Double> agentPersonalityDimensions) {
+    super(graph, id, agentTrustDimensions, agentPersonalityDimensions);
   }
 
   public void assignServiceRequest(ServiceRequest request) {
@@ -20,17 +19,23 @@ public class WangTrustConsumerAgent extends WangTrustAgent implements ConsumerAg
 
   @Override
   public ProducerAgent getPreferredProducerForTransaction(List<ProducerAgent> producerAgentsWillingToDoTransaction) {
-    Map<ProducerAgent, TrustVectorList> producerTrustScores = new HashMap<>();
 
-    for (ProducerAgent producerAgent : producerAgentsWillingToDoTransaction) {
-      producerTrustScores.put(producerAgent, this.requestTrustScoreInAnotherAgent(producerAgent));
-    }
+    // NEED TO IMPLEMENT THIS BASED ON TOPSIS METHOD
 
-    // RETURN PRODUCER AGENT WITH THE HIGHEST TRUST SCORE
-    // IMPLEMENT THIS!!! THIS CURRENT RETURN IS NOT RIGHT!!!
-    // INSTEAD YOU NEED TO FIND THE PRODUCER THAT HAS THE HIGHEST TRUST SCORE!!!
-    return producerTrustScores.keySet().iterator().next();
 
+    return null;
   }
+//    Map<ProducerAgent, TrustVectorList> producerTrustScores = new HashMap<>();
+//
+//    for (ProducerAgent producerAgent : producerAgentsWillingToDoTransaction) {
+//      producerTrustScores.put(producerAgent, this.requestTrustScoreInAnotherAgent(producerAgent));
+//    }
+//
+//    // RETURN PRODUCER AGENT WITH THE HIGHEST TRUST SCORE
+//    // IMPLEMENT THIS!!! THIS CURRENT RETURN IS NOT RIGHT!!!
+//    // INSTEAD YOU NEED TO FIND THE PRODUCER THAT HAS THE HIGHEST TRUST SCORE!!!
+//    return producerTrustScores.keySet().iterator().next();
+//
+//  }
 
 }
