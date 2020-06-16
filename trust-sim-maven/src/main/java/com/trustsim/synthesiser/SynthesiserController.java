@@ -1,8 +1,6 @@
 package com.trustsim.synthesiser;
 
-import com.trustsim.simulator.agents.Graph;
 import com.trustsim.simulator.storage.SQLiteDatabaseManager;
-import com.trustsim.simulator.storage.XStreamManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -24,7 +22,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -49,8 +48,8 @@ public class SynthesiserController implements Initializable {
   private TableView tableView;
   @FXML
   private TableColumn systemNameColumn;
-  @FXML
-  private TableColumn systemDateColumn;
+//  @FXML
+//  private TableColumn systemDateColumn;
 
   private ObservableList<AgentSystem> tableData;
   private final SQLiteDatabaseManager sqLiteDatabaseManager = SQLiteDatabaseManager.getInstance();
@@ -73,14 +72,14 @@ public class SynthesiserController implements Initializable {
         ).setSystemName(t.getNewValue()));
 
 
-    systemDateColumn.setCellValueFactory(new PropertyValueFactory<AgentSystem, String>("dateCreated"));
-    systemDateColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-    systemDateColumn.setOnEditCommit(
-        (EventHandler<CellEditEvent<AgentSystem, String>>) t -> ((AgentSystem) t.getTableView().getItems().get(
-            t.getTablePosition().getRow())
-        ).setDateCreated(t.getNewValue()));
+//    systemDateColumn.setCellValueFactory(new PropertyValueFactory<AgentSystem, String>("dateCreated"));
+//    systemDateColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+//    systemDateColumn.setOnEditCommit(
+//        (EventHandler<CellEditEvent<AgentSystem, String>>) t -> ((AgentSystem) t.getTableView().getItems().get(
+//            t.getTablePosition().getRow())
+//        ).setDateCreated(t.getNewValue()));
 
-    tableView.getColumns().setAll(systemNameColumn, systemDateColumn);
+    tableView.getColumns().setAll(systemNameColumn);
     tableView.setPrefWidth(450);
     tableView.setPrefHeight(300);
     tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -115,16 +114,11 @@ public class SynthesiserController implements Initializable {
 
       if (buttonEventType.equals("add")) {
         String systemName = addSystemPopup();
-        Graph blankGraph = new Graph(1, "blankGraph");
-        String currentDate = LocalDate.now().toString();
-        AgentSystem newSystem = new AgentSystem(systemName, currentDate, blankGraph);
-//        String agentSystemXML = null;
-//        try {
-//          agentSystemXML = xStreamManager.encodeToXML(newSystem);
-//        } catch (IOException e) {
-//          e.printStackTrace();
-//        }
-        boolean didAddItem = sqLiteDatabaseManager.addToTable("agentSystems", systemName, newSystem);
+        AgentSystem newSystem = new AgentSystem(systemName);
+
+        List<Integer> itemData = systemParametersToList(newSystem);
+
+        boolean didAddItem = sqLiteDatabaseManager.addToTable("agentSystems", systemName, itemData);
 
         if (!didAddItem) {
           Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -160,12 +154,22 @@ public class SynthesiserController implements Initializable {
 //        } catch (IOException e) {
 //          e.printStackTrace();
 //        }
-        sqLiteDatabaseManager.addToTable("agentSystems", systemBeingEdited.getSystemName(), systemBeingEdited);
+        List<Integer> itemDataEditing = systemParametersToList(systemBeingEdited);
+
+        sqLiteDatabaseManager.addToTable("agentSystems", systemBeingEdited.getSystemName(), itemDataEditing);
 
         reloadSystemInformationPane();
       }
 
 
+    }
+
+    private List<Integer> systemParametersToList(AgentSystem newSystem) {
+      List<Integer> itemData = new ArrayList<>();
+      itemData.add(newSystem.getNumberOfConsumersParameter());
+      itemData.add(newSystem.getNumberOfProducersParameter());
+      itemData.add(newSystem.getNumberOfServiceRequests());
+      return itemData;
     }
   }
 

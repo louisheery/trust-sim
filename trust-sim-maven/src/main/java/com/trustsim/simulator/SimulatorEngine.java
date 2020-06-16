@@ -41,9 +41,9 @@ public class SimulatorEngine {
         simulationEventManager = new WangSimulationEventManager(selectedAgentSystem.getNumberOfServiceRequests(), agentGraph);
         break;
     }
-
+    System.out.println("HERE@");
     simulationEventManager.startSim();
-
+    System.out.println("HERE2");
     return true;
   }
 
