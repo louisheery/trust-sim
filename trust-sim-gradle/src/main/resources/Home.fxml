@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="homePane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trustsim.home.HomeController">
+    <BorderPane prefHeight="700.0" prefWidth="1000.0">
+        <top>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                <MenuBar>
+                    <Menu mnemonicParsing="false" text="File">
+                        <MenuItem mnemonicParsing="false" text="Close"/>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Edit">
+                        <MenuItem mnemonicParsing="false" text="Delete"/>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Help">
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </Menu>
+                </MenuBar>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select an Function:" textAlignment="CENTER"/>
+                <HBox alignment="CENTER">
+                    <Button fx:id="ingestorButton" mnemonicParsing="false" onMouseClicked="#onMouseClicked"
+                            text="Ingestor"/>
+                    <Button fx:id="synthesiserButton" mnemonicParsing="false" onMouseClicked="#onMouseClicked"
+                            text="Synthesiser"/>
+                    <Button fx:id="simulatorButton" mnemonicParsing="false" onMouseClicked="#onMouseClicked"
+                            text="Simulator"/>
+                    <Button fx:id="evaluatorButton" mnemonicParsing="false" onMouseClicked="#onMouseClicked"
+                            text="Evaluator"/>
+                </HBox>
+            </VBox>
+        </top>
+        <bottom>
+          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim" BorderPane.alignment="CENTER"/>
+        </bottom>
+    </BorderPane>
+</AnchorPane>

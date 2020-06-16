@@ -2,9 +2,10 @@ plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'maven'
 }
 
-group 'java.trustsim'
+group 'java.trustsimgradle'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -29,4 +30,4 @@ test {
     }
 }
 
-mainClassName = 'com.trustsim.TrustSim'
+mainClassName = 'com.trustsimgradle.TrustSim'

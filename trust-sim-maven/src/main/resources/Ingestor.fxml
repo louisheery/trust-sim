@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<AnchorPane id="AnchorPane" fx:id="ingestorPane" prefHeight="700.0" prefWidth="1000.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.trustsim.ingestor.IngestorController">
+    <BorderPane prefHeight="700.0" prefWidth="1000.0">
+        <top>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                <MenuBar>
+                    <Menu mnemonicParsing="false" text="File">
+                        <MenuItem text="Exit to Main Menu" fx:id="toMenu" onAction="#toMainMenu" />
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Edit">
+                        <MenuItem mnemonicParsing="false" text="Delete"/>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Help">
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </Menu>
+                </MenuBar>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ingestor" textAlignment="CENTER"/>
+                <HBox alignment="CENTER">
+
+                </HBox>
+            </VBox>
+        </top>
+        <bottom>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim" BorderPane.alignment="CENTER"/>
+        </bottom>
+    </BorderPane>
+</AnchorPane>
+
