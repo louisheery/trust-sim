@@ -10,7 +10,7 @@ git clone https://github.com/JanusGraph/janusgraph-docker.git
 cd janusgraph-docker
 ```
 3. Run the Docker Setup
-This will create 3 Docker Containers: jce-janusgraph, jce-elastic, jce-cassandra
+This will create 3 Docker Containers (jce-janusgraph, jce-elastic, jce-cassandra) in a group called janusgraph-docker-master
 ```
 docker-compose -f docker-compose-cql-es.yml up
 ```
