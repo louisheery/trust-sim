@@ -13,7 +13,6 @@ cd janusgraph-docker
 This will create 3 Docker Containers: jce-janusgraph, jce-elastic, jce-cassandra
 ```
 docker-compose -f docker-compose-cql-es.yml up
-
 ```
 #### Every-time Setup
 ```
