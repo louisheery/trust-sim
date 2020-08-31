@@ -3,7 +3,7 @@ A Testbed for Evaluating Trust
 
 ## Run TrustSim Application (Windows)
 #### First-time Setup
-1. Install Java SE 14 (https://www.oracle.com/java/technologies/javase-downloads.html)
+1. Install Java SE 14 (https://www.oracle.com/java/technologies/javase-downloads.html) (additional help @ https://java.tutorials24x7.com/blog/how-to-install-java-14-on-windows)
 2. Make sure your Java Version is set to Java 14 (check that ```$ java -version``` shows Java 14.0.2).
 3. Download JavaFX 14.0.2.1 @ https://gluonhq.com/products/javafx/ -> "Latest Release".
 4. Copy the bin folder contents from the JavaFX download folder into the bin folder of jdk-14.0.2 folder (e.g. at C:/Program Files/Java/jdk-14.0.2/bin)
