@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedAreaChart?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+
+  <StackedAreaChart fx:id="stackedAreaChart1" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+    <xAxis>
+      <NumberAxis fx:id="stackedAreaChart1xaxis" side="BOTTOM" />
+    </xAxis>
+    <yAxis>
+      <NumberAxis fx:id="stackedAreaChart1yaxis" side="LEFT" />
+    </yAxis>
+  </StackedAreaChart>
+
+</fx:root>

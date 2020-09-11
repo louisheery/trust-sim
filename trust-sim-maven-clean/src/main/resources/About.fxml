@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane id="AnchorPane" fx:id="aboutPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trustsim.about.AboutController">
+  <children>
+    <BorderPane prefHeight="700.0" prefWidth="1000.0">
+      <top>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+          <children>
+            <HBox fx:id="trustSimLogoHBox" alignment="CENTER_LEFT">
+              <padding>
+                <Insets bottom="8.0" top="8.0" />
+              </padding>
+              <children>
+                <HBox maxWidth="25.0" minWidth="25.0" prefHeight="10.0" prefWidth="25.0" />
+                <ImageView fx:id="trustSimLogoView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                <HBox maxWidth="12.0" minWidth="12.0" prefHeight="10.0" prefWidth="12.0" />
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim">
+                  <font>
+                    <Font name="System Bold" size="22.0" />
+                  </font>
+                  <HBox.margin>
+                    <Insets left="10.0" />
+                  </HBox.margin>
+                </Text>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER">
+                  <font>
+                    <Font size="18.0" />
+                  </font>
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Text>
+              </children>
+            </HBox>
+            <MenuBar>
+              <menus>
+                <Menu fx:id="fileMenuButton" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="toMenu" onAction="#toMainMenu" text="Exit to Main Menu" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+
+          </children>
+        </VBox>
+      </top>
+      <center>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+          <children>
+            <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+              <children>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                    <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@images/logo/trustsimlogoblack.png" />
+                      </image>
+                    </ImageView>
+                    <HBox prefHeight="200.0" prefWidth="25.0" />
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim">
+                      <font>
+                        <Font size="28.0" />
+                      </font>
+                    </Text>
+                  </children>
+                </HBox>
+                <Text fx:id="aboutTextHeader" strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim is a modular and extendable Simulation Application for Trust and Reputation Models.">
+                  <VBox.margin>
+                    <Insets bottom="10.0" />
+                  </VBox.margin></Text>
+                <Text fx:id="aboutTextSubheader"  strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim was designed by Louis Heery at Imperial College London." />
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>

@@ -1,0 +1,63 @@
+.mainmenu-bgkd {
+  -fx-min-height: 640;
+  -fx-background-image: url("/images/styles/r9.png");
+  -fx-background-size: 100% 100%;
+  -fx-background-position: center center;
+  -fx-background-repeat: no-repeat;
+}
+
+
+.mainmenu-button {
+  -fx-padding: 0.7em 0.57em;
+  /*-fx-font-size: 80px;*/
+  -jfx-button-type: raised;
+  -fx-border-color: darkgrey;
+  -fx-border-radius: 2px;
+  -fx-background-color: lightgrey;
+  -fx-pref-height: 150;
+  -fx-max-height: 150;
+  -fx-min-height: 150;
+  -fx-pref-width: 150;
+  -fx-max-width: 150;
+  -fx-min-width: 150;
+  -fx-text-fill: ORANGE;
+  -fx-background-size: 120;
+  /*-fx-background-size: contain;*/
+  -fx-background-position: center center;
+  -fx-background-repeat: no-repeat;
+}
+
+.mainmenu-button:hover {
+  -fx-background-color: white;
+}
+
+.importer-button {
+  -fx-background-image: url("/images/buttons/importer.png");
+}
+
+.synthesiser-button {
+  -fx-background-image: url("/images/buttons/synthesiser.png");
+}
+
+.simulator-button {
+  -fx-background-image: url("/images/buttons/simulator.png");
+}
+
+.evaluator-button {
+  -fx-background-image: url("/images/buttons/evaluator.png");
+}
+
+.help-icon-button {
+  -fx-background-color: black;
+  -fx-background-image: url("/images/buttons/help.png");
+  -fx-background-size: 14;
+  /*-fx-background-size: contain;*/
+  -fx-background-position: center center;
+  -fx-background-repeat: no-repeat;
+  -fx-font-weight: bold;
+  -fx-background-radius: 5em;
+  -fx-min-width: 20px;
+  -fx-min-height: 20px;
+  -fx-max-width: 20px;
+  -fx-max-height: 20px;
+}

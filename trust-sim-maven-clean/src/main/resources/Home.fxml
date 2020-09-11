@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="homePane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trustsim.home.HomeController">
+   <children>
+     <BorderPane prefHeight="700.0" prefWidth="1000.0">
+       <top>
+         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+              <HBox fx:id="trustSimLogoHBox" alignment="CENTER_LEFT">
+                <padding>
+                  <Insets bottom="8.0" top="8.0" />
+                </padding>
+                 <children>
+                   <HBox maxWidth="25.0" minWidth="25.0" prefHeight="10.0" prefWidth="25.0" />
+                   <ImageView fx:id="trustSimLogoView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                   <HBox maxWidth="12.0" minWidth="12.0" prefHeight="10.0" prefWidth="12.0" />
+                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim">
+                     <font>
+                       <Font name="System Bold" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                       <Insets left="10.0" />
+                     </HBox.margin>
+                   </Text>
+                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER">
+                     <font>
+                       <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                       <Insets left="20.0" />
+                     </HBox.margin>
+                   </Text>
+                 </children>
+              </HBox>
+              <MenuBar>
+                 <menus>
+                   <Menu fx:id="fileMenuButton" mnemonicParsing="false" text="File">
+          </Menu>
+                   <Menu mnemonicParsing="false" text="Edit">
+            <!--                      <items>-->
+            <!--                        <MenuItem mnemonicParsing="false" text="Delete" />-->
+            <!--                      </items>-->
+          </Menu>
+                   <Menu mnemonicParsing="false" text="Help">
+                      <items>
+                        <MenuItem fx:id="toAboutPageButton" mnemonicParsing="false" onAction="#onMouseClicked" text="About" />
+                      </items>
+                   </Menu>
+                 </menus>
+              </MenuBar>
+              <HBox alignment="CENTER" styleClass="mainmenu-bgkd" stylesheets="@/css/home.css" VBox.vgrow="ALWAYS">
+                 <children>
+                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <HBox.margin>
+                       <Insets />
+                     </HBox.margin>
+                      <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                          <VBox.margin>
+                            <Insets bottom="80.0" />
+                          </VBox.margin>
+                           <children>
+                             <HBox>
+                               <VBox.margin>
+                                 <Insets bottom="15.0" />
+                               </VBox.margin>
+                                <children>
+                                  <Text fx:id="importText" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate Trust System" textAlignment="CENTER">
+                                    <font>
+                                      <Font name="System Bold" size="16.0" />
+                                    </font>
+                                  </Text>
+                                  <Button fx:id="synthesiserHelpButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="help-icon-button" stylesheets="@/css/home.css" text="?">
+                                    <HBox.margin>
+                                      <Insets left="5.0" />
+                                    </HBox.margin>
+                                  </Button>
+                                </children>
+                             </HBox>
+                             <Button fx:id="synthesiserButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="mainmenu-button, importer-button" stylesheets="@/css/home.css">
+                               <VBox.margin>
+                                 <Insets />
+                               </VBox.margin>
+                             </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                          <VBox.margin>
+                            <Insets />
+                          </VBox.margin>
+                           <children>
+                             <Button fx:id="importerButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="mainmenu-button, synthesiser-button" stylesheets="@/css/home.css">
+                               <VBox.margin>
+                                 <Insets />
+                               </VBox.margin>
+                             </Button>
+                             <HBox>
+                               <VBox.margin>
+                                 <Insets top="15.0" />
+                               </VBox.margin>
+                                <children>
+                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Import Trust System" textAlignment="CENTER">
+                                    <font>
+                                      <Font size="16.0" />
+                                    </font>
+                                  </Text>
+                                  <Button fx:id="importerHelpButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="help-icon-button" stylesheets="@/css/home.css" text="?">
+                                    <HBox.margin>
+                                      <Insets left="5.0" />
+                                    </HBox.margin>
+                                  </Button>
+                                </children>
+                             </HBox>
+                           </children>
+                        </VBox>
+                      </children>
+                   </VBox>
+                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <HBox.margin>
+                       <Insets left="145.0" right="145.0" />
+                     </HBox.margin>
+                      <children>
+                        <VBox alignment="TOP_CENTER" maxHeight="400.0" minHeight="400.0" prefHeight="400.0" prefWidth="100.0">
+                          <VBox.margin>
+                            <Insets bottom="80.0" />
+                          </VBox.margin>
+                           <children>
+                             <HBox VBox.vgrow="NEVER">
+                               <VBox.margin>
+                                 <Insets bottom="15.0" />
+                               </VBox.margin>
+                                <children>
+                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust System Simulation" textAlignment="CENTER">
+                                    <font>
+                                      <Font size="16.0" />
+                                    </font>
+                                  </Text>
+                                  <Button fx:id="simulatorHelpButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="help-icon-button" stylesheets="@/css/home.css" text="?">
+                                    <HBox.margin>
+                                      <Insets left="5.0" />
+                                    </HBox.margin>
+                                  </Button>
+                                </children>
+                             </HBox>
+                             <Button fx:id="simulatorButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="mainmenu-button, simulator-button" stylesheets="@/css/home.css" />
+                           </children>
+                        </VBox>
+                      </children>
+                   </VBox>
+                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                      <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                          <VBox.margin>
+                            <Insets bottom="80.0" />
+                          </VBox.margin>
+                           <children>
+                             <HBox VBox.vgrow="NEVER">
+                               <VBox.margin>
+                                 <Insets bottom="15.0" />
+                               </VBox.margin>
+                                <children>
+                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Analyse Simulation Results" textAlignment="CENTER">
+                                    <font>
+                                      <Font size="16.0" />
+                                    </font>
+                                  </Text>
+                                  <Button fx:id="evaluatorHelpButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="help-icon-button" stylesheets="@/css/home.css" text="?">
+                                    <HBox.margin>
+                                      <Insets left="5.0" />
+                                    </HBox.margin>
+                                  </Button>
+                                </children>
+                             </HBox>
+                             <Button fx:id="evaluatorButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="mainmenu-button, evaluator-button" stylesheets="@/css/home.css" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                             <Button fx:id="calculatorEvaluatorButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="mainmenu-button, evaluator-button" stylesheets="@/css/home.css" />
+                             <HBox VBox.vgrow="NEVER">
+                               <VBox.margin>
+                                 <Insets top="15.0" />
+                               </VBox.margin>
+                                <children>
+                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Analyse Calculation Results" textAlignment="CENTER">
+                                    <font>
+                                      <Font size="16.0" />
+                                    </font>
+                                  </Text>
+                                  <Button fx:id="calculatorEvaluatorHelpButton" mnemonicParsing="false" onAction="#onMouseClicked" styleClass="help-icon-button" stylesheets="@/css/home.css" text="?">
+                                    <HBox.margin>
+                                      <Insets left="5.0" />
+                                    </HBox.margin>
+                                  </Button>
+                                </children>
+                             </HBox>
+                           </children>
+                        </VBox>
+                      </children>
+                   </VBox>
+                 </children>
+              </HBox>
+            </children>
+         </VBox>
+       </top>
+     </BorderPane>
+   </children>
+</AnchorPane>
