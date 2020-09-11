@@ -62,5 +62,7 @@ trust-sim-maven-clean/target/*
 trust-sim-maven-clean/src/*.sqlite.zip
 trust-sim-maven-clean/src/main/java/target
 *.zip
+.css/
+.img/
 .css
 .img
