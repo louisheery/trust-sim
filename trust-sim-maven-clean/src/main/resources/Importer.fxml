@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane id="AnchorPane" fx:id="importerPane" prefHeight="700.0" prefWidth="1000.0"
+  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="com.trustsim.importer.ImporterController">
+  <BorderPane prefHeight="700.0" prefWidth="1000.0">
+    <top>
+      <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0"
+        BorderPane.alignment="CENTER">
+        <HBox fx:id="trustSimLogoHBox" alignment="CENTER_LEFT">
+          <padding>
+            <Insets bottom="8.0" top="8.0"/>
+          </padding>
+          <HBox maxWidth="25.0" minWidth="25.0" prefHeight="10.0" prefWidth="25.0"/>
+          <ImageView fx:id="trustSimLogoView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true"
+            preserveRatio="true"/>
+          <HBox maxWidth="12.0" minWidth="12.0" prefHeight="10.0" prefWidth="12.0"/>
+          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim">
+            <font>
+              <Font name="System Bold" size="22.0"/>
+            </font>
+            <HBox.margin>
+              <Insets left="10.0"/>
+            </HBox.margin>
+          </Text>
+          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER">
+            <font>
+              <Font size="18.0"/>
+            </font>
+            <HBox.margin>
+              <Insets left="20.0"/>
+            </HBox.margin>
+          </Text>
+        </HBox>
+        <MenuBar>
+          <Menu fx:id="fileMenuButton" mnemonicParsing="false" text="File">
+            <MenuItem fx:id="toMenu" onAction="#changeScene" text="Exit to Main Menu"/>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" text="Delete"/>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <MenuItem fx:id="toAbout" onAction="#changeScene" mnemonicParsing="false"
+              text="About"/>
+          </Menu>
+        </MenuBar>
+      </VBox>
+    </top>
+    <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0"
+        BorderPane.alignment="CENTER">
+        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+          <VBox alignment="CENTER" maxWidth="550.0" minWidth="550.0" prefWidth="550.0"
+            HBox.hgrow="ALWAYS">
+            <HBox.margin>
+              <Insets left="20.0" right="20.0"/>
+            </HBox.margin>
+
+
+            <GridPane VBox.vgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"
+                  prefWidth="100.0"/>
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="180.0" minHeight="180.0" prefHeight="180.0"
+                  vgrow="ALWAYS"/>
+                <RowConstraints maxHeight="160.0" minHeight="160.0" prefHeight="160.0"
+                  vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="130.0" minHeight="130.0" prefHeight="130.0"
+                  vgrow="ALWAYS"/>
+              </rowConstraints>
+
+
+              <AnchorPane fx:id="anchorPane2" GridPane.halignment="CENTER"
+                GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER"
+                GridPane.vgrow="ALWAYS" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <padding>
+                  <Insets bottom="20.0"/>
+                </padding>
+                <GridPane fx:id="gridPane2" alignment="CENTER_LEFT" prefHeight="180.0"
+                  prefWidth="550.0" style="-fx-border-color: lightgray;"
+                  HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                  <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0"/>
+                  </padding>
+                  <columnConstraints>
+                    <ColumnConstraints/>
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints vgrow="ALWAYS"/>
+                  </rowConstraints>
+                  <TabPane tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="0"
+                    GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                    GridPane.rowIndex="0" GridPane.valignment="CENTER"
+                    GridPane.vgrow="ALWAYS">
+                    <GridPane.margin>
+                      <Insets top="8.0"/>
+                    </GridPane.margin>
+                    <Tab text="EigenTrust">
+                      <AnchorPane>
+                        <padding>
+                          <Insets bottom="10.0"/>
+                        </padding>
+
+                        <GridPane HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                          <columnConstraints>
+                            <ColumnConstraints/>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="265.0"
+                              minWidth="265.0" prefWidth="265.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="265.0"
+                              minWidth="265.0" prefWidth="265.0"/>
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="ALWAYS"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS"/>
+                          </rowConstraints>
+                          <padding>
+                            <Insets top="10.0"/>
+                          </padding>
+                          <HBox alignment="CENTER_LEFT"
+                            GridPane.columnIndex="1" GridPane.rowIndex="1"
+                            GridPane.valignment="CENTER">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Epsilon Constant"/>
+                            <HBox prefHeight="20.0" prefWidth="200.0"/>
+                            <Button fx:id="epsilonHelpButton"
+                              mnemonicParsing="false"
+                              onAction="#helpOnClicked"
+                              styleClass="help-icon-button"
+                              stylesheets="@/css/home.css" text="?"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="2">
+                              <HBox.margin>
+                                <Insets left="5.0"/>
+                              </HBox.margin>
+                            </Button>
+                          </HBox>
+
+
+                          <TextField fx:id="epsilonConstantInput"
+                            GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                              <Insets left="20.0" right="20.0"/>
+                            </GridPane.margin>
+                          </TextField>
+
+
+                          <HBox alignment="CENTER_LEFT"
+                            GridPane.columnIndex="1" GridPane.rowIndex="2"
+                            GridPane.valignment="CENTER">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Alpha Constant"/>
+                            <HBox prefHeight="20.0" prefWidth="200.0"/>
+                            <Button fx:id="alphaHelpButton"
+                              mnemonicParsing="false"
+                              onAction="#helpOnClicked"
+                              styleClass="help-icon-button"
+                              stylesheets="@/css/home.css" text="?"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="2">
+                              <HBox.margin>
+                                <Insets left="5.0"/>
+                              </HBox.margin>
+                            </Button>
+                          </HBox>
+
+                          <TextField fx:id="alphaConstantInput"
+                            GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                              <Insets left="20.0" right="20.0"/>
+                            </GridPane.margin>
+                          </TextField>
+                        </GridPane>
+                      </AnchorPane>
+                    </Tab>
+                  </TabPane>
+                </GridPane>
+
+                <Label layoutX="10.0" layoutY="-8.0"
+                  style="-fx-background-color: #f4f4f4;" text="  Trust Models  "/>
+              </AnchorPane>
+
+
+              <AnchorPane fx:id="anchorPane3" GridPane.halignment="CENTER"
+                GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER"
+                GridPane.vgrow="ALWAYS" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <padding>
+                  <Insets bottom="20.0"/>
+                </padding>
+                <GridPane fx:id="gridPane3" style="-fx-border-color: lightgray;"
+                  HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                  <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                  </padding>
+                  <columnConstraints>
+                    <ColumnConstraints/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0"
+                      minWidth="265.0" prefWidth="265.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0"
+                      minWidth="265.0" prefWidth="265.0"/>
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                    <RowConstraints vgrow="ALWAYS"/>
+                  </rowConstraints>
+
+                  <HBox alignment="CENTER_LEFT"
+                    GridPane.columnIndex="1" GridPane.rowIndex="0"
+                    GridPane.valignment="CENTER">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cassandra Hostname"
+                    />
+                    <HBox prefHeight="20.0" prefWidth="200.0"/>
+                    <Button fx:id="cassandraHostnameHelpButton"
+                      mnemonicParsing="false"
+                      onAction="#helpOnClicked"
+                      styleClass="help-icon-button"
+                      stylesheets="@/css/home.css" text="?"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="2">
+                      <HBox.margin>
+                        <Insets left="5.0"/>
+                      </HBox.margin>
+                    </Button>
+                  </HBox>
+                  <TextField fx:id="cassandraHostNameTextField" maxWidth="225.0"
+                    minWidth="225.0" prefWidth="225.0" GridPane.columnIndex="2"
+                    GridPane.rowIndex="0">
+                    <GridPane.margin>
+                      <Insets left="20.0" right="20.0"/>
+                    </GridPane.margin>
+                  </TextField>
+
+
+                  <HBox alignment="CENTER_LEFT"
+                    GridPane.columnIndex="1" GridPane.rowIndex="1"
+                    GridPane.valignment="CENTER">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cassandra Port"/>
+                    <HBox prefHeight="20.0" prefWidth="200.0"/>
+                    <Button fx:id="cassandraPortHelpButton"
+                      mnemonicParsing="false"
+                      onAction="#helpOnClicked"
+                      styleClass="help-icon-button"
+                      stylesheets="@/css/home.css" text="?"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="2">
+                      <HBox.margin>
+                        <Insets left="5.0"/>
+                      </HBox.margin>
+                    </Button>
+                  </HBox>
+                  <TextField fx:id="cassandraPortTextField" maxWidth="225.0"
+                    minWidth="225.0" prefWidth="225.0" GridPane.columnIndex="2"
+                    GridPane.rowIndex="1">
+                    <GridPane.margin>
+                      <Insets left="20.0" right="20.0"/>
+                    </GridPane.margin>
+                  </TextField>
+
+                  <HBox alignment="CENTER_LEFT"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="2"
+                    GridPane.valignment="CENTER">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Elastic Search Hostname" />
+                    <HBox prefHeight="20.0" prefWidth="200.0"/>
+                    <Button fx:id="elasticSearchHostnameHelpButton"
+                      mnemonicParsing="false"
+                      onAction="#helpOnClicked"
+                      styleClass="help-icon-button"
+                      stylesheets="@/css/home.css" text="?"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="2">
+                      <HBox.margin>
+                        <Insets left="5.0"/>
+                      </HBox.margin>
+                    </Button>
+                  </HBox>
+                  <TextField fx:id="elasticsearchHostNameTextField" maxWidth="225.0"
+                    minWidth="225.0" prefWidth="225.0" GridPane.columnIndex="2"
+                    GridPane.rowIndex="2">
+                    <GridPane.margin>
+                      <Insets left="20.0" right="20.0"/>
+                    </GridPane.margin>
+                  </TextField>
+
+                  <HBox alignment="CENTER_LEFT"
+                    GridPane.columnIndex="1" GridPane.rowIndex="3"
+                    GridPane.valignment="CENTER">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Elastic Search Port"
+                    />
+                    <HBox prefHeight="20.0" prefWidth="200.0"/>
+                    <Button fx:id="elasticSearchPortHelpButton"
+                      mnemonicParsing="false"
+                      onAction="#helpOnClicked"
+                      styleClass="help-icon-button"
+                      stylesheets="@/css/home.css" text="?"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="2">
+                      <HBox.margin>
+                        <Insets left="5.0"/>
+                      </HBox.margin>
+                    </Button>
+                  </HBox>
+                  <TextField fx:id="elasticsearchPortTextField" maxWidth="225.0"
+                    minWidth="225.0" prefWidth="225.0" GridPane.columnIndex="2"
+                    GridPane.rowIndex="3">
+                    <GridPane.margin>
+                      <Insets left="20.0" right="20.0"/>
+                    </GridPane.margin>
+                  </TextField>
+                </GridPane>
+
+                <Label layoutX="10.0" layoutY="-8.0"
+                  style="-fx-background-color: #f4f4f4;" text="  Souce Database Settings  "/>
+              </AnchorPane>
+
+              <AnchorPane fx:id="anchorPane4" GridPane.halignment="CENTER"
+                GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER"
+                GridPane.vgrow="ALWAYS" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <padding>
+                  <Insets bottom="10.0"/>
+                </padding>
+                <GridPane fx:id="gridPane4" style="-fx-border-color: lightgray;"
+                  HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0"
+                      minWidth="265.0" prefWidth="265.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0"
+                      minWidth="265.0" prefWidth="265.0"/>
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints vgrow="ALWAYS"/>
+                  </rowConstraints>
+                  <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                  </padding>
+
+                  <HBox alignment="CENTER"
+                    GridPane.columnIndex="0" GridPane.rowIndex="0"
+                    GridPane.valignment="CENTER">
+                    <Button mnemonicParsing="false" onAction="#initialiseJanusGraphSchema"
+                      text="Initialise Graph">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                      </VBox.margin>
+                    </Button>
+                    <HBox prefHeight="20.0" prefWidth="20.0"/>
+                    <Button fx:id="initialiseGraphHelpButton"
+                      mnemonicParsing="false"
+                      onAction="#helpOnClicked"
+                      styleClass="help-icon-button"
+                      stylesheets="@/css/home.css" text="?"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="2">
+                      <HBox.margin>
+                        <Insets left="5.0"/>
+                      </HBox.margin>
+                    </Button>
+                  </HBox>
+
+
+                  <HBox alignment="CENTER"
+                    GridPane.columnIndex="1" GridPane.rowIndex="0"
+                    GridPane.valignment="CENTER">
+                    <Button mnemonicParsing="false" onAction="#startImport" text="Import Graph &amp; Run Trust Models">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                      </VBox.margin>
+                    </Button>
+                    <HBox prefHeight="20.0" prefWidth="20.0"/>
+                    <Button fx:id="importGraphHelpButton"
+                      mnemonicParsing="false"
+                      onAction="#helpOnClicked"
+                      styleClass="help-icon-button"
+                      stylesheets="@/css/home.css" text="?"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="2">
+                      <HBox.margin>
+                        <Insets left="5.0"/>
+                      </HBox.margin>
+                    </Button>
+                  </HBox>
+
+                </GridPane>
+
+
+                <Label layoutX="10.0" layoutY="-8.0"
+                  style="-fx-background-color: #f4f4f4;"
+                  text="  Initialise and Run  "/>
+              </AnchorPane>
+            </GridPane>
+          </VBox>
+        </HBox>
+      </VBox>
+    </center>
+  </BorderPane>
+</AnchorPane>
+
+
+

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane id="AnchorPane" fx:id="evaluatorPane" prefHeight="700.0" prefWidth="1000.0"
+  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="com.trustsim.evaluator.EvaluatorController">
+  <BorderPane prefHeight="700.0" prefWidth="1000.0">
+    <top>
+      <VBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="100.0"
+        BorderPane.alignment="CENTER">
+        <HBox fx:id="trustSimLogoHBox" alignment="CENTER_LEFT">
+          <padding>
+            <Insets bottom="8.0" top="8.0"/>
+          </padding>
+          <HBox maxWidth="25.0" minWidth="25.0" prefHeight="10.0" prefWidth="25.0"/>
+          <ImageView fx:id="trustSimLogoView" fitHeight="30.0" fitWidth="30.0"
+            pickOnBounds="true" preserveRatio="true"/>
+          <HBox maxWidth="12.0" minWidth="12.0" prefHeight="10.0" prefWidth="12.0"/>
+          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim">
+            <font>
+              <Font name="System Bold" size="22.0"/>
+            </font>
+            <HBox.margin>
+              <Insets left="10.0"/>
+            </HBox.margin>
+          </Text>
+          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="" textOrigin="CENTER">
+            <font>
+              <Font size="18.0"/>
+            </font>
+            <HBox.margin>
+              <Insets left="20.0"/>
+            </HBox.margin>
+          </Text>
+        </HBox>
+        <MenuBar>
+          <Menu fx:id="fileMenuButton" mnemonicParsing="false" text="File">
+            <MenuItem fx:id="toMenu" onAction="#changeScene" text="Exit to Main Menu"/>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem onAction="#deleteAllEvaluatorItems" text="Delete All Agent Systems"/>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <MenuItem fx:id="toAbout" onAction="#changeScene" mnemonicParsing="false"
+              text="About"/>
+          </Menu>
+        </MenuBar>
+        <HBox alignment="CENTER">
+
+        </HBox>
+      </VBox>
+    </top>
+    <center>
+      <SplitPane dividerPositions="0.33867735470941884" BorderPane.alignment="CENTER">
+        <AnchorPane minHeight="0.0" minWidth="0.0">
+          <TableView id="TableView" fx:id="tableView" maxHeight="558.0" maxWidth="335.0"
+            minHeight="558.0" minWidth="335.0" prefHeight="558.0" prefWidth="335.0">
+            <columns>
+              <TableColumn id="systemNameColumn" fx:id="simulationNameColumn" maxWidth="335.0"
+                prefWidth="335.0" text="Simulation Result Name"/>
+            </columns>
+          </TableView>
+          <ToolBar layoutY="557.0" maxHeight="43.0" maxWidth="334.0" minHeight="43.0"
+            minWidth="334.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="43.0"
+            prefWidth="334.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="560.0">
+            <Button id="addSystemButton" fx:id="saveAsXMLButton" mnemonicParsing="false"
+              text="Export to JSON"/>
+            <Button id="removeSystemButton" fx:id="removeButton" mnemonicParsing="false"
+              text="Remove"/>
+          </ToolBar>
+        </AnchorPane>
+        <AnchorPane fx:id="tabPaneParent" minHeight="0.0" minWidth="0.0">
+          <Text fx:id="selectResultPromptTextField" strokeType="OUTSIDE" strokeWidth="0.0"
+            text="Text"/>
+          <TabPane fx:id="tabPaneUpper" minHeight="452.0" minWidth="656.0" prefHeight="627.0"
+            prefWidth="656.0" tabClosingPolicy="UNAVAILABLE">
+            <Tab fx:id="allSimulationsTab" text="All Simulations">
+              <AnchorPane fx:id="tab1AnchorPane">
+                <TabPane fx:id="tabPaneLower1" maxHeight="591.0" maxWidth="655.0" minHeight="591.0"
+                  minWidth="655.0" prefHeight="591.0" prefWidth="655.0"
+                  tabClosingPolicy="UNAVAILABLE">
+                  <Tab fx:id="allSimulationGraphViewTab" text="Graph View">
+                    <AnchorPane>
+                      <VBox fx:id="tab1VBox" AnchorPane.bottomAnchor="16.0"
+                        AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                        AnchorPane.topAnchor="0.0">
+                        <padding>
+                          <Insets bottom="40.0" left="20.0" right="20.0"
+                            top="20.0"/>
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0"
+                          prefWidth="200.0" VBox.vgrow="ALWAYS">
+                          <ComboBox fx:id="graphSelectorComboBox"
+                            onAction="#comboBoxGraphAction">
+                            <HBox.margin>
+                              <Insets right="10.0"/>
+                            </HBox.margin>
+                          </ComboBox>
+                          <ComboBox fx:id="graphAgentTrustTypeComboBox"
+                            onAction="#comboBoxAgentTypeAction">
+                            <HBox.margin>
+                              <Insets right="10.0"/>
+                            </HBox.margin>
+                          </ComboBox>
+                          <Pane HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                        <HBox fx:id="graphContainerHBox" HBox.hgrow="ALWAYS"
+                          VBox.vgrow="ALWAYS">
+                        </HBox>
+                      </VBox>
+                    </AnchorPane>
+                  </Tab>
+                  <Tab fx:id="allSimulationTableViewTab" text="Table View">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                      prefWidth="200.0">
+                      <VBox fx:id="tab2VBox" AnchorPane.bottomAnchor="16.0"
+                        AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                        AnchorPane.topAnchor="0.0">
+                        <padding>
+                          <Insets bottom="40.0" left="20.0" right="20.0"
+                            top="20.0"/>
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0"
+                          prefWidth="200.0" VBox.vgrow="ALWAYS">
+                          <ComboBox fx:id="tableSelectorComboBox"
+                            onAction="#comboBoxTableAction">
+                            <HBox.margin>
+                              <Insets right="10.0"/>
+                            </HBox.margin>
+                          </ComboBox>
+                          <Pane HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                        <HBox fx:id="tableContainerHBox" HBox.hgrow="ALWAYS"
+                          VBox.vgrow="ALWAYS">
+                        </HBox>
+                      </VBox>
+                    </AnchorPane>
+                  </Tab>
+                </TabPane>
+              </AnchorPane>
+            </Tab>
+            <Tab text="Individual Simulations">
+
+
+              <AnchorPane fx:id="tab2AnchorPane">
+                <TabPane maxHeight="591.0" maxWidth="655.0" minHeight="591.0"
+                  minWidth="655.0" prefHeight="591.0" prefWidth="655.0"
+                  tabClosingPolicy="UNAVAILABLE">
+                  <Tab fx:id="individualSimulationGraphViewTab" text="Graph View">
+                    <AnchorPane>
+                      <VBox fx:id="individualTab1VBox"
+                        AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <padding>
+                          <Insets bottom="40.0" left="20.0" right="20.0"
+                            top="20.0"/>
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0"
+                          prefWidth="200.0" VBox.vgrow="ALWAYS">
+                          <ComboBox fx:id="individualGraphSelectorComboBox"
+                            onAction="#comboBoxGraphAction">
+                            <HBox.margin>
+                              <Insets right="10.0"/>
+                            </HBox.margin>
+                          </ComboBox>
+                          <ComboBox
+                            fx:id="simulationNumberGraphSelectorComboBox"
+                            onAction="#comboBoxSimulationNumberAction">
+                            <HBox.margin>
+                              <Insets right="10.0"/>
+                            </HBox.margin>
+                          </ComboBox>
+                          <ComboBox
+                            fx:id="individualGraphAgentTrustTypeComboBox"
+                            onAction="#comboBoxAgentTypeAction">
+                            <HBox.margin>
+                              <Insets right="10.0"/>
+                            </HBox.margin>
+                          </ComboBox>
+                          <Pane HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                        <HBox fx:id="individualGraphContainerHBox"
+                          HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        </HBox>
+                      </VBox>
+                    </AnchorPane>
+                  </Tab>
+                  <Tab fx:id="individualSimulationTableViewTab" text="Table View">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                      prefWidth="200.0">
+                      <VBox fx:id="individualTab2VBox"
+                        AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <padding>
+                          <Insets bottom="40.0" left="20.0" right="20.0"
+                            top="20.0"/>
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0"
+                          prefWidth="200.0" VBox.vgrow="ALWAYS">
+                          <ComboBox fx:id="individualTableSelectorComboBox"
+                            onAction="#comboBoxTableAction">
+                            <HBox.margin>
+                              <Insets right="10.0"/>
+                            </HBox.margin>
+                          </ComboBox>
+                          <ComboBox
+                            fx:id="simulationNumberTableSelectorComboBox"
+                            onAction="#comboBoxSimulationNumberAction">
+                            <HBox.margin>
+                              <Insets right="10.0"/>
+                            </HBox.margin>
+                          </ComboBox>
+                          <Pane HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                        <HBox fx:id="individualTableContainerHBox"
+                          HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        </HBox>
+                      </VBox>
+                    </AnchorPane>
+                  </Tab>
+                </TabPane>
+              </AnchorPane>
+            </Tab>
+            <Tab text="Simulation Parameters">
+              <AnchorPane fx:id="tab2AnchorPane1" maxHeight="600.0" maxWidth="656.0"
+                minHeight="595.0" minWidth="656.0" prefHeight="595.0" prefWidth="656.0">
+                <HBox fx:id="systemInformationContainerHBox" maxHeight="600.0"
+                  maxWidth="656.0" minHeight="595.0" minWidth="656.0" prefHeight="595.0"
+                  prefWidth="656.0">
+                </HBox>
+              </AnchorPane>
+            </Tab>
+          </TabPane>
+        </AnchorPane>
+      </SplitPane>
+    </center>
+  </BorderPane>
+</AnchorPane>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane id="AnchorPane" fx:id="synthesiserPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trustsim.synthesiser.SynthesiserController">
+  <children>
+    <BorderPane prefHeight="700.0" prefWidth="1000.0">
+      <top>
+        <VBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+          <children>
+            <HBox fx:id="trustSimLogoHBox" alignment="CENTER_LEFT">
+              <padding>
+                <Insets bottom="8.0" top="8.0" />
+              </padding>
+              <children>
+                <HBox maxWidth="25.0" minWidth="25.0" prefHeight="10.0" prefWidth="25.0" />
+                <ImageView fx:id="trustSimLogoView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                <HBox maxWidth="12.0" minWidth="12.0" prefHeight="10.0" prefWidth="12.0" />
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TrustSim">
+                  <font>
+                    <Font name="System Bold" size="22.0" />
+                  </font>
+                  <HBox.margin>
+                    <Insets left="10.0" />
+                  </HBox.margin>
+                </Text>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="" textOrigin="CENTER">
+                  <font>
+                    <Font size="18.0" />
+                  </font>
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Text>
+              </children>
+            </HBox>
+            <MenuBar>
+              <menus>
+                <Menu fx:id="fileMenuButton" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="toMenu" onAction="#changeScene" text="Exit to Main Menu" />
+
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem onAction="#deleteAllSynthesiserItems" text="Delete All Agent Systems" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="toAbout" onAction="#changeScene" mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+          </children>
+        </VBox>
+      </top>
+      <center>
+        <SplitPane dividerPositions="0.33867735470941884" BorderPane.alignment="CENTER">
+          <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0">
+              <children>
+                <TableView id="TableView" fx:id="tableView" maxHeight="558.0" maxWidth="335.0" minHeight="558.0" minWidth="335.0" prefHeight="558.0" prefWidth="335.0">
+                  <columns>
+                    <TableColumn id="systemNameColumn" fx:id="systemNameColumn" maxWidth="335.0" prefWidth="335.0" text="Agent System" />
+
+                  </columns>
+                </TableView>
+                <ToolBar layoutY="570.0" maxHeight="43.0" maxWidth="334.0" minHeight="43.0" minWidth="334.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="43.0" prefWidth="334.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="560.0">
+                  <items>
+                    <Button id="addSystemButton" fx:id="addSystemButton" mnemonicParsing="false" text="Add Trust System" />
+                    <Button id="removeSystemButton" fx:id="removeSystemButton" mnemonicParsing="false" text="Remove Trust System" />
+                  </items>
+                </ToolBar>
+              </children>
+            </AnchorPane>
+            <AnchorPane fx:id="tabPaneParent" minHeight="0.0" minWidth="0.0">
+              <children>
+                <Text fx:id="selectSystemPromptTextField" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                <HBox fx:id="systemPaneContainerHBox" maxHeight="600.0" maxWidth="656.0" minHeight="595.0" minWidth="656.0" prefHeight="595.0" prefWidth="656.0">
+                </HBox>
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>

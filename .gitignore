@@ -4,12 +4,15 @@
 !src/**/build/
 *.iml
 .idea
+.run
 #.idea/workspace.xml
 .gradle
 build/
 .navigation
 captures/
 output.json
+Test Results - TrustSimTESTOR.html
+trustsimdb.sqlite
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -49,3 +52,13 @@ Thumbs.db
 #NDK
 obj/
 .externalNativeBuild
+
+# Ignore other folder files
+trust-sim-maven-clean/out
+trust-sim-maven-clean/Test Results - TrustSimTESTOR.html
+trust-sim-maven-clean/trust-sim-maven (1).iml
+trust-sim-maven-clean/target/*
+!trust-sim-maven-clean/target/TrustSim.jar
+trust-sim-maven-clean/src/*.sqlite.zip
+trust-sim-maven-clean/src/main/java/target
+*.zip

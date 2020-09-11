@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<fx:root type="javafx.scene.layout.VBox" maxHeight="600.0" maxWidth="656.0" minHeight="595.0"
+  minWidth="656.0" prefHeight="595.0" prefWidth="656.0" xmlns:fx="http://javafx.com/fxml/1"
+  xmlns="http://javafx.com/javafx/8">
+
+  <VBox fx:id="tab1VBox" maxHeight="600.0" maxWidth="656.0" minHeight="595.0" minWidth="656.0"
+    prefHeight="595.0" prefWidth="656.0">
+    <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <AnchorPane fx:id="anchorPane" maxHeight="50.0" maxWidth="656.0" minHeight="50.0"
+      minWidth="656.0" prefHeight="50.0" prefWidth="656.0">
+      <padding>
+        <Insets bottom="10.0"/>
+      </padding>
+      <GridPane fx:id="gridPane" maxHeight="40.0" maxWidth="616.0" minHeight="40.0" minWidth="616.0"
+        prefHeight="40.0" prefWidth="616.0" style="-fx-border-color: lightgray;">
+        <padding>
+          <Insets bottom="10.0" left="10.0" right="10.0"/>
+        </padding>
+        <columnConstraints>
+          <ColumnConstraints/>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+
+
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agent System Name   "
+          GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Text fx:id="systemNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"
+          GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+      </GridPane>
+
+      <Label layoutX="10.0" layoutY="-8.0" style="-fx-background-color: #f4f4f4;"
+        text="  Agent System  "/>
+    </AnchorPane>
+
+    <AnchorPane fx:id="anchorPane2" maxHeight="120.0" maxWidth="656.0" minHeight="120.0"
+      minWidth="656.0" prefHeight="120.0" prefWidth="656.0">
+      <padding>
+        <Insets bottom="20.0"/>
+      </padding>
+      <children>
+        <GridPane fx:id="gridPane2" maxHeight="110.0" maxWidth="616.0" minHeight="110.0"
+          minWidth="616.0" prefHeight="110.0" prefWidth="616.0"
+          style="-fx-border-color: lightgray;">
+          <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0"/>
+          </padding>
+          <columnConstraints>
+            <ColumnConstraints/>
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints vgrow="ALWAYS"/>
+          </rowConstraints>
+          <children>
+
+            <TabPane tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="0" GridPane.rowIndex="0"
+              maxHeight="110.0" maxWidth="596.0" minHeight="110.0" minWidth="596.0"
+              prefHeight="110.0"
+              prefWidth="596.0">
+              <GridPane.margin>
+                <Insets top="8.0"/>
+              </GridPane.margin>
+              <tabs>
+                <Tab text="EigenTrust">
+                  <content>
+                    <AnchorPane>
+                      <padding>
+                        <Insets bottom="10.0"/>
+                      </padding>
+                      <children>
+                        <GridPane HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                          <columnConstraints>
+                            <ColumnConstraints/>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="250.0"
+                              prefWidth="250.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="250.0"
+                              prefWidth="250.0"/>
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="ALWAYS"/>
+                            <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                            <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                          </rowConstraints>
+                          <padding>
+                            <Insets top="10.0"/>
+                          </padding>
+                          <children>
+
+                            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1"
+                              GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="Epsilon Constant"/>
+                              </children>
+                            </HBox>
+
+
+                            <Text fx:id="epsilonConstantInput" GridPane.columnIndex="2"
+                              GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                <Insets left="20.0" right="20.0"/>
+                              </GridPane.margin>
+                            </Text>
+
+
+                            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1"
+                              GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                              <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alpha Constant"/>
+                              </children>
+                            </HBox>
+
+                            <Text fx:id="alphaConstantInput" GridPane.columnIndex="2"
+                              GridPane.rowIndex="2">
+                              <GridPane.margin>
+                                <Insets left="20.0" right="20.0"/>
+                              </GridPane.margin>
+                            </Text>
+                          </children>
+                        </GridPane>
+                      </children>
+
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="DynamicTrust">
+                  <content>
+                    <AnchorPane>
+                      <padding>
+                        <Insets bottom="10.0"/>
+                      </padding>
+                      <children>
+                        <GridPane HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                          <columnConstraints>
+                            <ColumnConstraints/>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="250.0"
+                              prefWidth="250.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="250.0"
+                              prefWidth="250.0"/>
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="ALWAYS"/>
+                            <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                            <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                            <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                          </rowConstraints>
+                          <padding>
+                            <Insets top="10.0"/>
+                          </padding>
+                          <children>
+
+                            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1"
+                              GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="Epsilon Constant"/>
+                              </children>
+                            </HBox>
+
+
+                            <Text fx:id="epsilonConstantElasticInput" GridPane.columnIndex="2"
+                              GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                <Insets left="20.0" right="20.0"/>
+                              </GridPane.margin>
+                            </Text>
+
+
+                            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1"
+                              GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                              <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alpha Constant"/>
+                              </children>
+                            </HBox>
+
+                            <Text fx:id="alphaConstantElasticInput" GridPane.columnIndex="2"
+                              GridPane.rowIndex="2">
+                              <GridPane.margin>
+                                <Insets left="20.0" right="20.0"/>
+                              </GridPane.margin>
+                            </Text>
+
+                            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1"
+                              GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                              <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Decay Constant"/>
+                              </children>
+                            </HBox>
+
+                            <Text fx:id="decayConstantElasticInput" GridPane.columnIndex="2"
+                              GridPane.rowIndex="3">
+                              <GridPane.margin>
+                                <Insets left="20.0" right="20.0"/>
+                              </GridPane.margin>
+                            </Text>
+
+
+                          </children>
+                        </GridPane>
+                      </children>
+
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </GridPane>
+
+        <Label layoutX="10.0" layoutY="-8.0" style="-fx-background-color: #f4f4f4;"
+          text="  Trust Models  "/>
+      </children>
+    </AnchorPane>
+
+    <AnchorPane fx:id="anchorPane5" maxHeight="100.0" maxWidth="656.0" minHeight="100.0"
+      minWidth="656.0" prefHeight="100.0" prefWidth="656.0">
+      <padding>
+        <Insets bottom="10.0"/>
+      </padding>
+      <children>
+        <GridPane fx:id="gridPane5" style="-fx-border-color: lightgray;"
+          maxHeight="90.0" maxWidth="616.0" minHeight="90.0"
+          minWidth="616.0" prefHeight="90.0" prefWidth="616.0">
+          <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="250.0"
+              prefWidth="250.0"/>
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0" minWidth="250.0"
+              prefWidth="250.0"/>
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints vgrow="ALWAYS"/>
+          </rowConstraints>
+          <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+          </padding>
+          <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Simulation Replications" GridPane.rowIndex="0"/>
+            <Text fx:id="numberOfServiceRequests" GridPane.rowIndex="0" GridPane.columnIndex="1"
+              GridPane.hgrow="ALWAYS">
+              <GridPane.margin>
+                <Insets left="20.0" right="20.0"/>
+              </GridPane.margin>
+            </Text>
+
+            <Text strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Trust Update Interval" GridPane.rowIndex="1"/>
+            <Text fx:id="trustUpdateIntervalInput"
+              GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <GridPane.margin>
+                <Insets left="20.0" right="20.0"/>
+              </GridPane.margin>
+            </Text>
+
+            <Text strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Number of Agents in System" GridPane.rowIndex="2"/>
+            <Text fx:id="numberOfAgentsInput"
+              GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <GridPane.margin>
+                <Insets left="20.0" right="20.0"/>
+              </GridPane.margin>
+            </Text>
+          </children>
+        </GridPane>
+
+
+        <Label layoutX="10.0" layoutY="-8.0"
+          style="-fx-background-color: #f4f4f4;"
+          text="  Agent System Parameters  "/>
+      </children>
+    </AnchorPane>
+  </VBox>
+
+</fx:root>
