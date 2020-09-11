@@ -1,5 +1,16 @@
 # TrustSim
+[![Build Version](https://img.shields.io/badge/build-v1.0-brightgreen)](https://github.com/louisheery/trust-sim)
+[![Build Status](https://img.shields.io/badge/build_status-published-brightgreen)](https://github.com/louisheery/trust-sim)
+[![Code Coverage](https://img.shields.io/badge/code_coverage-82%-brightgreen)](https://github.com/louisheery/trust-sim)
+[![Platform](https://img.shields.io/badge/platform-linux--64%20%7C%20win--64%20%7C%20osx--64%20%7C-lightgrey)](https://github.com/louisheery/trust-sim)
+
 A Testbed for Evaluating Trust
+
+![TrustSim](https://github.com/louisheery/trust-sim/raw/master/images/architecture.png)
+
+## Codebase Architecture
+![TrustSim](https://github.com/louisheery/trust-sim/raw/master/images/codebasearchitecture.png)
+
 
 ## Run TrustSim Application (Windows)
 #### First-time Setup
