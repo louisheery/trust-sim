@@ -4,7 +4,7 @@
 [![Code Coverage](https://img.shields.io/badge/code_coverage-82%25-brightgreen)](https://github.com/louisheery/trust-sim)
 [![Platform](https://img.shields.io/badge/platform-linux--64%20%7C%20win--64%20%7C%20osx--64-lightgrey)](https://github.com/louisheery/trust-sim)
 
-A Testbed for Evaluating Trust
+A Java-based Simulation Platform and Testbed for Evaluating Mathematical Models of Trust and Reputation.
 
 ![TrustSim](https://github.com/louisheery/trust-sim/raw/master/images/architecture.png)
 
