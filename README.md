@@ -1,5 +1,5 @@
 # TrustSim
-[![Build Version](https://img.shields.io/badge/build_v1.0-brightgreen)](https://github.com/louisheery/trust-sim)
+[![Build Version](https://img.shields.io/badge/build-v1.0-brightgreen)](https://github.com/louisheery/trust-sim)
 [![Build Status](https://img.shields.io/badge/build_status-published-brightgreen)](https://github.com/louisheery/trust-sim)
 [![Code Coverage](https://img.shields.io/badge/code_coverage-82%25-brightgreen)](https://github.com/louisheery/trust-sim)
 [![Platform](https://img.shields.io/badge/platform-linux--64%20%7C%20win--64%20%7C%20osx--64-lightgrey)](https://github.com/louisheery/trust-sim)
